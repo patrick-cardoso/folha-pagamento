@@ -1,3 +1,33 @@
 swarm:
   port:
     offset: 500
+#  bind:
+#    address: 0.0.0.0
+  messaging-activemq:
+    servers:
+      default:
+        jms-topics:
+          pedido-finalizado-topic: {}
+  messaging:
+    remote:
+#      name: remote-mq
+      host: localhost
+      port: 61616
+#      jndi-name: java:/jms/remote-mq 
+  remote: true
+  datasources:
+    data-sources:
+      unibaveDS:
+        driver-name: h2
+        connection-url: jdbc:h2:file:C:/Unibave/calculo/calculo-folha
+#        connection-url: jdbc:h2:file:c:/Users/Unibave/ecommerce-pagamento
+        user-name: sa
+        password: sa
+#  deployment:
+#    demo.war:
+#      web:
+#        login-config:
+#          auth-method: KEYCLOAK
+#        security-constraints:
+#          - url-pattern: /
+#            roles: [admin]
