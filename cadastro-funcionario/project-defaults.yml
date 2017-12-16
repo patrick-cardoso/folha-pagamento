@@ -1,0 +1,10 @@
+swarm:
+  port:
+    offset: 0
+  datasources:
+    data-sources:
+      unibaveDS:
+        driver-name: h2
+        connection-url: jdbc:h2:file:C:/Development/unibave/banco/folha-pagamento
+        user-name: sa
+        password: sa
