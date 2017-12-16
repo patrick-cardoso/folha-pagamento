@@ -8,6 +8,7 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
+import lombok.Data;
 import lombok.NoArgsConstructor;
 import net.unibave.folhapagamento.base.EntityId;
 
@@ -15,6 +16,7 @@ import net.unibave.folhapagamento.base.EntityId;
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
+@Data
 @Table(name = "calculo_folha")
 public class CalculoFolha implements EntityId {
 
