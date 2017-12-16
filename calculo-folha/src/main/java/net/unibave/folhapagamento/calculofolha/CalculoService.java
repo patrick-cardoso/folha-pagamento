@@ -15,7 +15,7 @@ public class CalculoService {
     @Inject
     private HoleriteService holeriteService;
 
-    public void calculaFolha(final CalculoFolha calculo) {
+    public void calculaFolha(final CalculoFolhaDTO calculo) {
 
         //chamada remota de funcionarios 8080
         List<Funcionario> funcionarios = new ArrayList<>();
