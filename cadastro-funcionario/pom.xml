@@ -4,7 +4,7 @@
   <modelVersion>4.0.0</modelVersion>
   <groupId>net.unibave</groupId>
   <artifactId>cadastro-funcionario</artifactId>
-  <name>Cadastro de funcinario</name>
+  <name>Cadastro de funcionario</name>
   <version>1.0.0-SNAPSHOT</version>
   <packaging>war</packaging>
 
