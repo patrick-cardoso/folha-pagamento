@@ -42,7 +42,7 @@ public class CalculoFolhaMDB implements MessageListener {
             CalculoFolhaDTO calculo = mapper.readValue(json, CalculoFolhaDTO.class);
             service.calculaFolha(calculo);
         } catch (Exception e) {
-            logger.error("Error consuming message:", e);
+            logger.error("Error consuming message:", e);  
         }
     }
 }
