@@ -9,7 +9,9 @@ public class FuncionarioDTO {
 
     private String nome;
 
-    private BigDecimal salarioBruno;
+    private BigDecimal salarioBruto;
+
+    private long version;
 
     public Long getId() {
         return id;
@@ -27,12 +29,20 @@ public class FuncionarioDTO {
         this.nome = nome;
     }
 
-    public BigDecimal getSalarioBruno() {
-        return salarioBruno;
+    public BigDecimal getSalarioBruto() {
+        return salarioBruto;
     }
 
     public void setSalarioBruno(BigDecimal salarioBruno) {
-        this.salarioBruno = salarioBruno;
+        this.salarioBruto = salarioBruno;
+    }
+
+    public long getVersion() {
+        return version;
+    }
+
+    public void setVersion(long version) {
+        this.version = version;
     }
 
     public FuncionarioDTO() {
@@ -41,7 +51,7 @@ public class FuncionarioDTO {
     public FuncionarioDTO(Long id, String nome, BigDecimal salarioBruno) {
         this.id = id;
         this.nome = nome;
-        this.salarioBruno = salarioBruno;
+        this.salarioBruto = salarioBruno;
     }
 
     @Override
@@ -70,7 +80,7 @@ public class FuncionarioDTO {
 
     @Override
     public String toString() {
-        return "FuncionarioDTO{" + "id=" + id + ", nome=" + nome + ", salarioBruno=" + salarioBruno + '}';
+        return "FuncionarioDTO{" + "id=" + id + ", nome=" + nome + ", salarioBruno=" + salarioBruto + '}';
     }
 
 }

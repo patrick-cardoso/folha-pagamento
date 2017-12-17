@@ -7,7 +7,7 @@ swarm:
     servers:
       default:
         jms-topics:
-          pedido-finalizado-topic: {}
+          calculo-topic: {}
   messaging:
     remote:
 #      name: remote-mq

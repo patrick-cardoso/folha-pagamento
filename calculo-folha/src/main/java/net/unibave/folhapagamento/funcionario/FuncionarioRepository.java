@@ -1,4 +1,4 @@
-package net.unibave.folhapagamento.Funcionario;
+package net.unibave.folhapagamento.funcionario;
 
 import javax.ejb.Stateless;
 import net.unibave.folhapagamento.base.AbstractRepository;

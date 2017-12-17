@@ -1,8 +1,9 @@
 package net.unibave.folhapagamento.holerite;
 
-import net.unibave.folhapagamento.Funcionario.Funcionario;
+import net.unibave.folhapagamento.funcionario.Funcionario;
 import java.math.BigDecimal;
 import java.time.LocalDate;
+import java.util.Objects;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -44,7 +45,37 @@ public class Holerite implements EntityId {
 
     @Override
     public Object getId() {
-        return getId();
+        return id;
+    }
+
+    @Override
+    public int hashCode() {
+        int hash = 7;
+        hash = 59 * hash + Objects.hashCode(this.id);
+        return hash;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null) {
+            return false;
+        }
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        final Holerite other = (Holerite) obj;
+        if (!Objects.equals(this.id, other.id)) {
+            return false;
+        }
+        return true;
+    }
+
+    @Override
+    public String toString() {
+        return "Holerite{" + "id=" + id + ", dataFolha=" + dataFolha + ", valorIss=" + valorIss + ", valorIr=" + valorIr + ", valorSalarioLiquido=" + valorSalarioLiquido + '}';
     }
 
 }

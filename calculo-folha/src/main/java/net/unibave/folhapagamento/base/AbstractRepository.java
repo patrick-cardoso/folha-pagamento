@@ -15,6 +15,10 @@ public abstract class AbstractRepository<T, PK> { // TODO: 13/11/17 verificar pq
 
     private Class<T> tClass;
 
+    public EntityManager getEntityManager() {
+        return em;
+    }
+
     public List<T> findAll() {
         CriteriaBuilder builder = em.getCriteriaBuilder();
         CriteriaQuery<T> criteria = builder.createQuery(getClazz());
@@ -22,7 +26,7 @@ public abstract class AbstractRepository<T, PK> { // TODO: 13/11/17 verificar pq
         return em.createQuery(criteria)
                 .getResultList();
     }
-    
+
     public T find(PK id) {
         T entity = em.find(getClazz(), id);
         return entity;
@@ -48,5 +52,5 @@ public abstract class AbstractRepository<T, PK> { // TODO: 13/11/17 verificar pq
         }
         return tClass;
     }
-    
+
 }

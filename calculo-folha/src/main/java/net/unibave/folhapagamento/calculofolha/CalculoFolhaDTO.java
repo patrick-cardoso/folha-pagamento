@@ -3,7 +3,7 @@ package net.unibave.folhapagamento.calculofolha;
 import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.util.Objects;
-import net.unibave.folhapagamento.Funcionario.Funcionario;
+import net.unibave.folhapagamento.funcionario.Funcionario;
 
 public class CalculoFolhaDTO {
 

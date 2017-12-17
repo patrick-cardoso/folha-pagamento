@@ -1,4 +1,4 @@
-package net.unibave.folhapagamento.Funcionario;
+package net.unibave.folhapagamento.funcionario;
 
 import java.math.BigDecimal;
 import javax.persistence.Column;
@@ -29,7 +29,7 @@ public class Funcionario implements EntityId {
 
     @Column(name = "salrio_bruto", nullable = false)
     @NotNull
-    private BigDecimal salarioBruno;
+    private BigDecimal salarioBruto;
 
     @Override
     public Object getId() {
