@@ -36,14 +36,29 @@ public class Holerite implements EntityId {
     @Column(name = "data", nullable = false)
     private LocalDate dataFolha;
 
-    @Column(name = "valor_iss", nullable = false)
+    @Column(name = "valor_iss", nullable = true)
     private BigDecimal valorIss;
 
-    @Column(name = "valor_ir", nullable = false)
+    @Column(name = "aliquota_iss", nullable = true)
+    private BigDecimal aliquotaINSS;
+
+    @Column(name = "valor_ir", nullable = true)
     private BigDecimal valorIr;
 
-    @Column(name = "valor_salario_liq", nullable = false)
+    @Column(name = "aliquota_ir", nullable = true)
+    private BigDecimal aliquotaIR;
+
+    @Column(name = "base_calulo_ir", nullable = true)
+    private BigDecimal baseCaluloIR;
+
+    @Column(name = "deducao_ir", nullable = true)
+    private BigDecimal deducaoIR;
+
+    @Column(name = "valor_salario_liq", nullable = true)
     private BigDecimal valorSalarioLiquido;
+
+    @Column(name = "valor_salario_bruto", nullable = true)
+    private BigDecimal valorSalarioBruto;
 
     @Override
     public Object getId() {

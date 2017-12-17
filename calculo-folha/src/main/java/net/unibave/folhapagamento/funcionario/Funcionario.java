@@ -9,6 +9,7 @@ import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
+import lombok.Data;
 import lombok.NoArgsConstructor;
 import net.unibave.folhapagamento.base.EntityId;
 
@@ -16,6 +17,7 @@ import net.unibave.folhapagamento.base.EntityId;
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
+@Data
 @Table(name = "funcionario")
 public class Funcionario implements EntityId {
 

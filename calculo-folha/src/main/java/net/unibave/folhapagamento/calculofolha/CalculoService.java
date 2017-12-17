@@ -2,6 +2,7 @@ package net.unibave.folhapagamento.calculofolha;
 
 import java.math.BigDecimal;
 import java.util.List;
+import java.util.Map;
 import java.util.stream.Collectors;
 import javax.ejb.Stateless;
 import javax.inject.Inject;
@@ -36,13 +37,20 @@ public class CalculoService {
 
             Funcionario funcionario = funcionarioService.save(Funcionario.builder().nome(funcionarioLista.getNome()).salarioBruto(funcionarioLista.getSalarioBruto()).build());
 
-            //Calculo - chama método
+            Map<String, BigDecimal> calculaFolha = CalculoFolha.calculaFolha(funcionario.getSalarioBruto());
+
             Holerite holerite = Holerite.builder()
                     .funcionario(funcionario)
                     .dataFolha(calculo.getDataFolha())
-                    .valorIr(BigDecimal.ZERO)
-                    .valorIss(BigDecimal.ZERO)
-                    .valorSalarioLiquido(BigDecimal.ZERO)
+                    .valorIr(calculaFolha.get("valorIRRF"))
+                    .aliquotaIR(calculaFolha.get("aliquotaIR"))
+                    .aliquotaINSS(calculaFolha.get("aliquotaINSS"))
+                    .valorIss(calculaFolha.get("valorINSS"))
+                    .valorSalarioLiquido(calculaFolha.get("salarioLiquido"))
+                    .valorSalarioBruto(calculaFolha.get("salarioBruto"))
+                    .valorSalarioLiquido(calculaFolha.get("salarioLiquido"))
+                    .deducaoIR(calculaFolha.get("deducaoIR"))
+                    .baseCaluloIR(calculaFolha.get("baseCaluloIR"))
                     .build();
 
             holeriteService.save(holerite);

@@ -35,7 +35,7 @@ public class CalculoFolha implements EntityId {
         return id;
     }
 
-    private BigDecimal getAliquotaINSS(final BigDecimal salarioBruto) {
+    private static BigDecimal getAliquotaINSS(final BigDecimal salarioBruto) {
         if (salarioBruto.compareTo(BigDecimal.valueOf(1399.12)) <= 0) {
             return BigDecimal.valueOf(.08);
         }
@@ -45,7 +45,7 @@ public class CalculoFolha implements EntityId {
         return BigDecimal.valueOf(.11);
     }
 
-    private Map<String, BigDecimal> getAliquotaDeducaoIRRF(final BigDecimal baseCalculo) {
+    private static Map<String, BigDecimal> getAliquotaDeducaoIRRF(final BigDecimal baseCalculo) {
         Map<String, BigDecimal> retorno = new HashMap<>();
         if (baseCalculo.compareTo(BigDecimal.valueOf(1903.98)) <= 0) {
             retorno.put("aliquota", BigDecimal.ZERO);
@@ -72,7 +72,7 @@ public class CalculoFolha implements EntityId {
         return retorno;
     }
 
-    public Map<String, BigDecimal> calculaFolha(final BigDecimal salarioBruto) {
+    public static Map<String, BigDecimal> calculaFolha(final BigDecimal salarioBruto) {
         final BigDecimal aliquotaINSS = getAliquotaINSS(salarioBruto);
         final BigDecimal valorINSS = salarioBruto.multiply(aliquotaINSS);
         final BigDecimal baseCalculoIR = salarioBruto.subtract(valorINSS);
