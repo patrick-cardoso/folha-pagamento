@@ -14,6 +14,9 @@ public class HoleriteRepository extends AbstractRepository<Holerite, Long> {
                 "SELECT c FROM Holerite c WHERE MONTH(c.dataFolha) = :mes and DAY(c.dataFolha) = :ano", Holerite.class);
 
         try {
+            System.out.println("data" + data.toString());
+            System.out.println("mes" + data.getMonthValue());
+            System.out.println("ano" + data.getYear());
             return query.setParameter("mes", data.getMonthValue())
                     .setParameter("ano", data.getYear()).getSingleResult();
         } catch (NoResultException e) {

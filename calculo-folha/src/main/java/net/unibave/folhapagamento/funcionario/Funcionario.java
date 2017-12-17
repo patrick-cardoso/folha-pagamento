@@ -33,7 +33,7 @@ public class Funcionario implements EntityId {
 
     @Override
     public Object getId() {
-        return getId();
+        return id;
     }
 
 }

@@ -2,6 +2,7 @@ package net.unibave.folhapagamento.calculofolha;
 
 import java.math.BigDecimal;
 import java.util.List;
+import java.util.stream.Collectors;
 import javax.ejb.Stateless;
 import javax.inject.Inject;
 import javax.ws.rs.client.Client;
@@ -26,7 +27,8 @@ public class CalculoService {
 
     public void calculaFolha(final CalculoFolhaDTO calculo) {
 
-        if (repository.getHoleritePorData(calculo.getDataFolha()) != null) {
+        if (!repository.findAll().stream().filter(p -> p.getDataFolha().getMonth().equals(calculo.getDataFolha().getMonth())).collect(Collectors.toList()).isEmpty()) {
+            System.out.println("Saiu!!!");
             return;
         }
 
