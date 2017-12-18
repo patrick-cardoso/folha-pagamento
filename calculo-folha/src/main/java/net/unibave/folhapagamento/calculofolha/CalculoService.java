@@ -5,6 +5,8 @@ import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
 import javax.ejb.Stateless;
+import javax.ejb.TransactionAttribute;
+import javax.ejb.TransactionAttributeType;
 import javax.inject.Inject;
 import javax.ws.rs.client.Client;
 import javax.ws.rs.client.ClientBuilder;
@@ -17,6 +19,7 @@ import net.unibave.folhapagamento.holerite.HoleriteRepository;
 import net.unibave.folhapagamento.holerite.HoleriteService;
 
 @Stateless
+@TransactionAttribute(TransactionAttributeType.NOT_SUPPORTED)
 public class CalculoService {
 
     @Inject
@@ -29,7 +32,6 @@ public class CalculoService {
     public void calculaFolha(final CalculoFolhaDTO calculo) {
 
         if (!repository.findAll().stream().filter(p -> p.getDataFolha().getMonth().equals(calculo.getDataFolha().getMonth())).collect(Collectors.toList()).isEmpty()) {
-            System.out.println("Saiu!!!");
             return;
         }
 
