@@ -30,12 +30,6 @@ public class CalculoFolha implements EntityId {
     @Column(name = "data", nullable = false)
     private LocalDate dataFolha;
 
-    @Column(name = "mes", nullable = false)
-    private long mes;
-
-    @Column(name = "ano", nullable = false)
-    private long ano;
-
     @Override
     public Object getId() {
         return id;

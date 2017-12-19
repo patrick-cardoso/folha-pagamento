@@ -1,6 +1,7 @@
 package net.unibave.folhapagamento.calculofolha;
 
 import java.math.BigDecimal;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
@@ -35,8 +36,13 @@ public class CalculoService {
             return;
         }
 
-        for (FuncionarioDTO funcionarioLista : getFuncionarios()) {
+        int i = 0;
+        int j = getFuncionarios().size();
+        List<Holerite> holeritesPersistir = new ArrayList<>();
 
+        for (FuncionarioDTO funcionarioLista : getFuncionarios()) {
+            i++;
+            j--;
             Funcionario funcionario = funcionarioService.save(Funcionario.builder().nome(funcionarioLista.getNome()).salarioBruto(funcionarioLista.getSalarioBruto()).build());
 
             Map<String, BigDecimal> calculaFolha = CalculoFolha.calculaFolha(funcionario.getSalarioBruto());
@@ -55,7 +61,17 @@ public class CalculoService {
                     .baseCaluloIR(calculaFolha.get("baseCaluloIR"))
                     .build();
 
-            holeriteService.save(holerite);
+            if (i < 5) {
+                holeritesPersistir.add(holerite);
+            }
+            if (i == 5) {
+                holeriteService.saveMultiplos(holeritesPersistir);
+                holeritesPersistir = new ArrayList<>();
+                i = 0;
+            }
+        }
+        if (i > 0) {
+            holeriteService.saveMultiplos(holeritesPersistir);
         }
     }
 
