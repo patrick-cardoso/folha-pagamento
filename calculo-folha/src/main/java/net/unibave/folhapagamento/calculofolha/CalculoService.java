@@ -61,7 +61,7 @@ public class CalculoService {
                     .baseCaluloIR(calculaFolha.get("baseCaluloIR"))
                     .build();
 
-            if (i < 5) {
+            if (i <= 5) {
                 holeritesPersistir.add(holerite);
             }
             if (i == 5) {
